@@ -88,6 +88,26 @@ public:
             direction = 'N';
     }
 
+    void turnUp()
+    {
+        if (direction != 'U' || direction != 'D')
+            direction = 'U';
+        else if (direction == 'U')
+            direction = 'N';
+        else if (direction == 'D')
+            direction = 'S';
+    }
+
+    void turnDown()
+    {
+        if (direction != 'U' || direction != 'D')
+            direction = 'D';
+        else if (direction == 'U')
+            direction = 'S';
+        else if (direction == 'D')
+            direction = 'N';
+    }
+
     void printCoordinates()
     {
         cout << "Current Coordinates: (" << x << ", " << y << ", " << z << "), Direction: " << direction << endl;
@@ -128,6 +148,10 @@ int main()
             spacecraft.turnLeft();
         else if (command == 'r')
             spacecraft.turnRight();
+        else if (command == 'u')
+            spacecraft.turnUp();
+        else if (command == 'd')
+            spacecraft.turnDown();
     }
 
     spacecraft.printCoordinates();
