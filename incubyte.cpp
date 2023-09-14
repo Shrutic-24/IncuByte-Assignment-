@@ -15,6 +15,7 @@ public:
         z = 0;
         direction = 'E';
     }
+
     Spacecraft(int x0, int y0, int z0, char dir0)
     {
         x = x0;
@@ -22,6 +23,7 @@ public:
         z = z0;
         direction = dir0;
     }
+
     void moveForward()
     {
         if (direction == 'N')
@@ -37,6 +39,7 @@ public:
         else if (direction == 'D')
             z--;
     }
+
     void moveBackward()
     {
         if (direction == 'N')
@@ -51,6 +54,38 @@ public:
             z--;
         else if (direction == 'D')
             z++;
+    }
+
+    void turnLeft()
+    {
+        if (direction == 'N')
+            direction = 'W';
+        else if (direction == 'S')
+            direction = 'E';
+        else if (direction == 'E')
+            direction = 'N';
+        else if (direction == 'W')
+            direction = 'S';
+        else if (direction == 'U')
+            direction = 'N';
+        else if (direction == 'D')
+            direction = 'S';
+    }
+
+    void turnRight()
+    {
+        if (direction == 'N')
+            direction = 'E';
+        else if (direction == 'S')
+            direction = 'W';
+        else if (direction == 'E')
+            direction = 'S';
+        else if (direction == 'W')
+            direction = 'N';
+        else if (direction == 'U')
+            direction = 'S';
+        else if (direction == 'D')
+            direction = 'N';
     }
 
     void printCoordinates()
@@ -89,6 +124,10 @@ int main()
             spacecraft.moveForward();
         else if (command == 'b')
             spacecraft.moveBackward();
+        else if (command == 'l')
+            spacecraft.turnLeft();
+        else if (command == 'r')
+            spacecraft.turnRight();
     }
 
     spacecraft.printCoordinates();
